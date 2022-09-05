@@ -2,7 +2,6 @@
 @section('subtitle', '- Home')
 
 @section('content')
-
     <table class="table">
         <thead>
             <tr>
@@ -14,6 +13,7 @@
             </tr>
         </thead>
         <tbody>
+            
             @foreach ($vehiculos as $vehiculo)
                 <tr>
                     <td>{{ $vehiculo->placa }}</td>
@@ -53,7 +53,8 @@
     <div class="d-flex">
         {!! $vehiculos->links() !!}
     </div>
-
-
+    
     <a href="{{ route('vehiculo.create') }}" class="btn btn-primary">Crear</a>
+    <a href="{{ route('pdf.createPdfVehiculo') }}" class="btn btn-success">PDF</a>
+
 @endsection

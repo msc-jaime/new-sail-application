@@ -8,7 +8,7 @@ use App\Models\Vehiculo;
 class VehiculoController extends Controller
 {
     public function index(){
-        $vehiculos = Vehiculo::orderBy('id', 'desc')->paginate(2);
+        $vehiculos = Vehiculo::orderBy('id', 'desc')->paginate(10);
         //$vehiculos = Vehiculo::all();
         return view('vehiculo.index', compact('vehiculos'));
     }
