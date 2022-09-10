@@ -5,16 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
-    Scripts
-    <script src="{{ asset('build/assets/app.2ef880a3.js') }}" defer></script>
-    Styles
-    <link href="{{ asset('build/assets/app.936e35dc.css') }}" rel="stylesheet">
-    
+    <link href="{{ public_path('build/assets/app.936e35dc.css') }}" rel="stylesheet">
+    <link href="{{ public_path('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    {{ asset('build/assets/app.2ef880a3.js') }}
-    {{ asset('build/assets/app.936e35dc.css') }}
     
     <table class="table">
         <thead>

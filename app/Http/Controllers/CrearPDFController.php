@@ -8,9 +8,17 @@ use App\Models\Vehiculo;
 
 class CrearPDFController extends Controller
 {
-    public function createPdfVehiculo(){
+    public function createViewPdfVehiculo(){
         $vehiculos = Vehiculo::all();
         $pdf = Pdf::loadView('pdf.vehiculos', compact('vehiculos'));
         return $pdf->stream();
     }
+
+    public function createDownloadPdfVehiculo(){
+        $vehiculos = Vehiculo::all();
+        $pdf = Pdf::loadView('pdf.vehiculos', compact('vehiculos'));
+        return $pdf->download();
+    }
+
+
 }

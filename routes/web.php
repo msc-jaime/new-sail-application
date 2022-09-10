@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\CrearPDFController;
+use App\Http\Controllers\CrearExcelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,7 +21,10 @@ Route::put('vehiculo/{vehiculo}', [VehiculoController::class, 'update'])->name('
 Route::delete('vehiculo/{vehiculo}', [VehiculoController::class, 'delete'])->name('vehiculo.delete');
 
 
-Route::get('pdf', [CrearPDFController::class, 'createPdfVehiculo'])->name('pdf.createPdfVehiculo');
+Route::get('/view-pdf', [CrearPDFController::class, 'createViewPdfVehiculo'])->name('pdf.createViewPdfVehiculo');
+Route::get('/download-pdf', [CrearPDFController::class, 'createDownloadPdfVehiculo'])->name('pdf.createDownloadPdfVehiculo');
+Route::get('/download-excel', [CrearExcelController::class, 'createDownloadExcelVehiculo'])->name('excel.createDownloadExcelVehiculo');
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/vehiculo', fn () => );

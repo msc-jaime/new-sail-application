@@ -55,6 +55,8 @@
     </div>
     
     <a href="{{ route('vehiculo.create') }}" class="btn btn-primary">Crear</a>
-    <a href="{{ route('pdf.createPdfVehiculo') }}" class="btn btn-success">PDF</a>
+    <a href="{{ route('pdf.createViewPdfVehiculo') }}" class="btn btn-success">PDF</a>
+    <a href="{{ route('pdf.createDownloadPdfVehiculo') }}" class="btn btn-success"><i class="bi bi-cloud-download"></i> PDF</a>
+    <a href="{{ route('excel.createDownloadExcelVehiculo') }}" class="btn btn-success"><i class="bi bi-cloud-download"></i> EXECEL</a>
 
 @endsection
