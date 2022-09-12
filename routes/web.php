@@ -1,16 +1,16 @@
 <?php
 
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\ConductorController;
 use App\Http\Controllers\CrearPDFController;
 use App\Http\Controllers\CrearExcelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-
-//Route::resource('vehiculo', VehiculoController::class);
+Auth::routes();
 
 Route::get('vehiculo', [VehiculoController::class, 'index'])->name('vehiculo.index');
 Route::get('vehiculo/create', [VehiculoController::class, 'create'])->name('vehiculo.create');
@@ -20,11 +20,16 @@ Route::post('vehiculo/', [VehiculoController::class, 'store'])->name('vehiculo.s
 Route::put('vehiculo/{vehiculo}', [VehiculoController::class, 'update'])->name('vehiculo.update');
 Route::delete('vehiculo/{vehiculo}', [VehiculoController::class, 'delete'])->name('vehiculo.delete');
 
+Route::get('conductor', [ConductorController::class, 'index'])->name('conductor.index');
+Route::get('conductor/create', [ConductorController::class, 'create'])->name('conductor.create');
+Route::get('conductor/{conductor}', [ConductorController::class, 'show'])->name('conductor.show');
+Route::get('conductor/{conductor}/edit', [ConductorController::class, 'edit'])->name('conductor.edit');
+Route::post('conductor/', [ConductorController::class, 'store'])->name('conductor.store');
+Route::put('conductor/{conductor}', [ConductorController::class, 'update'])->name('conductor.update');
+Route::delete('conductor/{conductor}', [ConductorController::class, 'delete'])->name('conductor.delete');
 
 Route::get('/view-pdf', [CrearPDFController::class, 'createViewPdfVehiculo'])->name('pdf.createViewPdfVehiculo');
 Route::get('/download-pdf', [CrearPDFController::class, 'createDownloadPdfVehiculo'])->name('pdf.createDownloadPdfVehiculo');
 Route::get('/download-excel', [CrearExcelController::class, 'createDownloadExcelVehiculo'])->name('excel.createDownloadExcelVehiculo');
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/vehiculo', fn () => );

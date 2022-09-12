@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('conductors', function (Blueprint $table) {
             $table->id();
+            $table->string('documento_identificacion');
+            $table->string('nombre');
+            $table->string('celular');
+            $table->string('email');
+            $table->date('fecha_nacimiento');
             $table->timestamps();
         });
     }
