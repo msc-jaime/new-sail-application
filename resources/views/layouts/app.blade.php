@@ -128,21 +128,27 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
                                 <span data-feather="home"></span>
                                 Inicio
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('vehiculo.index') }}">
                                 <span data-feather="file"></span>
                                 Vehiculo
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('conductor.index') }}">
                                 <span data-feather="shopping-cart"></span>
                                 Conductores
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('ruta.index') }}">
+                                <span data-feather="shopping-cart"></span>
+                                Rutas
                             </a>
                         </li>
                         
