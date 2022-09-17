@@ -54,7 +54,7 @@
     </table>
 
     <div class="d-flex">
-        {!! $ruta->links() !!}
+        {!! $rutas->links() !!}
     </div>
     
     <a href="{{ route('ruta.create') }}" class="btn btn-primary">Crear</a>

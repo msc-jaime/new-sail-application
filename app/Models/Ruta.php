@@ -9,5 +9,7 @@ class Ruta extends Model
 {
     use HasFactory;
 
+    protected $table = "conductors_vehiculos";
+
     protected $fillable = ['id_conductor', 'id_vehiculo', 'origen', 'destino', 'fecha_salida', 'fecha_llegada'];
 }

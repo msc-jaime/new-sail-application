@@ -13,10 +13,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('app/', [VehiculoController::class, 'index'])->name('dashboard');
 
-Route::prefix('app/')->group(function () { 
-
+Route::prefix('app/')->middleware('auth')->group(function () { 
+    
+    Route::view('', 'dashboard')->name('dashboard');
     Route::get('vehiculo', [VehiculoController::class, 'index'])->name('vehiculo.index');
     Route::get('vehiculo/create', [VehiculoController::class, 'create'])->name('vehiculo.create');
     Route::get('vehiculo/{vehiculo}', [VehiculoController::class, 'show'])->name('vehiculo.show');

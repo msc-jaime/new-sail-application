@@ -8,29 +8,35 @@
         @method('PUT')
 
         <div class="mb-3">
-            <label for="documento_identificacion" class="form-label">Documento:</label>
-            <input id="documento_identificacion" type="text" name="documento_identificacion" class="form-control" value='{{ $conductor->documento_identificacion }}'>
+            <label for="id_conductor" class="form-label">Conductor:</label>
+            <input id="id_conductor" type="text" name="id_conductor" class="form-control" value='{{ $ruta->id_conductor }}'>
         </div>
 
         <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre:</label>
-            <input id="nombre" type="text" name="nombre" class="form-control" value='{{ $conductor->nombre }}'>
+            <label for="id_vehiculo" class="form-label">Vehiculo:</label>
+            <input id="id_vehiculo" type="text" name="id_vehiculo" class="form-control" value='{{ $ruta->id_vehiculo }}'>
         </div>
 
         <div class="mb-3">
-            <label for="celular" class="form-label">Celular:</label>
-            <input id="celular" type="text" name="celular" class="form-control" value='{{ $conductor->celular }}'>
+            <label for="origen" class="form-label">Origen:</label>
+            <input id="origen" type="text" name="origen" class="form-control" value='{{ $ruta->origen }}'>
         </div>
 
         <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
-            <input id="email" type="text" name="email" class="form-control" value='{{ $conductor->email }}'>
+            <label for="destino" class="form-label">Destino:</label>
+            <input id="destino" type="text" name="destino" class="form-control" value='{{ $ruta->destino }}'>
         </div>
 
         <div class="mb-3">
-            <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
-            <input id="fecha_nacimiento" type="date" name="fecha_nacimiento" class="form-control" value='{{ $conductor->fecha_nacimiento }}'>
+            <label for="fecha_salida" class="form-label">Fecha de salida:</label>
+            <input id="fecha_salida" type="date" name="fecha_salida" class="form-control" value='{{ $ruta->fecha_salida }}'>
         </div>
+        <div class="mb-3">
+            <label for="fecha_llegada" class="form-label">Fecha de llegada:</label>
+            <input id="fecha_llegada" type="date" name="fecha_llegada" class="form-control" value='{{ $ruta->fecha_llegada }}'>
+        </div>
+
+        
 
         <input type="submit" value="Enviar" class="btn btn-primary">
     </form>

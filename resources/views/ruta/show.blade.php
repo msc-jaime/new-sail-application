@@ -12,28 +12,28 @@
         </thead>
         <tbody>
             <tr>
-                <th>Id:</th>
+                <th>Conductor:</th>
                 <td>{{ $ruta->id_conductor }} </td>
             </tr>
             <tr>
-                <th>Documento:</th>
+                <th>Vehiculo:</th>
                 <td>{{ $ruta->id_vehiculo }} </td>
             </tr>
             <tr>
-                <th>Nombre:</th>
+                <th>Origen:</th>
                 <td>{{ $ruta->origen }}</td>
             </tr>
 
             <tr>
-                <th>Celular:</th>
+                <th>Destino:</th>
                 <td>{{ $ruta->destino }}</td>
             </tr>
             <tr>
-                <th>Email:</th>
+                <th>Fecha salida:</th>
                 <td>{{ $ruta->fecha_salida }}</td>
             </tr>
             <tr>
-                <th>Fecha de nacimiento:</th>
+                <th>Fecha dellegada:</th>
                 <td>{{ $ruta->fecha_llegada }}</td>
             </tr>
             <tr>
