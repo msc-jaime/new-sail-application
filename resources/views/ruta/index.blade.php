@@ -10,6 +10,7 @@
                 <th scope="col">Origen</th>
                 <th scope="col">Destino</th>
                 <th scope="col">Fecha de salida</th>
+                <th scope="col">Fecha de llegada</th>
                 <th scope="col" class="text-center">Acciones</th>
             </tr>
         </thead>
@@ -17,8 +18,8 @@
             
             @foreach ($rutas as $ruta)
                 <tr>
-                    <td>{{ $ruta->id_conductor }}</td>
-                    <td>{{ $ruta->id_vehiculo }}</td>
+                    <td>{{ $ruta->nombre }}</td>
+                    <td>{{ $ruta->placa . ' - ' . $ruta->marca }}</td>
                     <td>{{ $ruta->origen }}</td>
                     <td>{{ $ruta->destino }}</td>
                     <td>{{ $ruta->fecha_salida }}</td>

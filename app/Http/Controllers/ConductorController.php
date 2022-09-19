@@ -36,11 +36,10 @@ class ConductorController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            '_token' => 'required',
-            'documento_identificacion' => 'required',
+            'documento_identificacion' => 'required|unique:conductors',
             'nombre' => 'required', 
-            'celular' => 'required',
-            'email' => 'required',
+            'celular' => 'required|unique:conductors',
+            'email' => 'required|email',
             'fecha_nacimiento' => 'required'
         ]);
 
@@ -70,6 +69,15 @@ class ConductorController extends Controller
      * @return redirect()->route()
      */
     public function update(Request $request, Conductor $conductor){
+        $request->validate([
+            'documento_identificacion' => 'required|unique:conductors',
+            'nombre' => 'required', 
+            'celular' => 'required|unique:conductors',
+            'email' => 'required|email',
+            'fecha_nacimiento' => 'required'
+        ]);
+
+        
         $conductor->fill($request->post())->save();
         return redirect()->route('conductor.index');
     }

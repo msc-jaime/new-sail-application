@@ -95,10 +95,9 @@ class VehiculoTest extends TestCase
             'color'=>'magenta',
         ];
         
-        $vehiculo = Vehiculo::all()->first();
-
         $response = $this->actingAs($user)->post(route('vehiculo.store'), $test_vehiculo);
-
+        
+        $vehiculo = Vehiculo::all()->first();
 
         $test_vehiculo_update = [
             'placa' => 'ABC333', 

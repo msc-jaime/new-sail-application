@@ -38,7 +38,7 @@ class VehiculoController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            'placa' => 'required',
+            'placa' => 'required|unique:vehiculos',
             'marca' => 'required', 
             'modelo' => 'required',
             'color' => 'required'
@@ -71,6 +71,13 @@ class VehiculoController extends Controller
      * @return redirect()->route()
      */
     public function update(Request $request, Vehiculo $vehiculo){
+        $request->validate([
+            'placa' => 'required|unique:vehiculos',
+            'marca' => 'required', 
+            'modelo' => 'required',
+            'color' => 'required'
+        ]);
+
         $vehiculo->fill($request->post())->save();
         return redirect()->route('vehiculo.index')->with('success','Vehiculo Has Been updated successfully');
     }
