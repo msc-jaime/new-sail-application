@@ -12,7 +12,6 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
 
-
     public $password_default_factory = '12345678';
 
     /**
@@ -45,7 +44,7 @@ class AuthTest extends TestCase
         
         $response = $this->actingAs($user)->get(route('login'));
 
-        $response->assertRedirect('/app/');
+        $response->assertRedirect(route('dashboard'));
     }
 
     public function test_user_can_login_with_correct_credentials()
@@ -53,7 +52,6 @@ class AuthTest extends TestCase
 
         $user = User::factory()->create();
 
-        var_dump($this->password_default_factory);
         $response = $this->post(route('login'), [
             'email' => $user->email,
             'password' => $this->password_default_factory,
@@ -68,7 +66,7 @@ class AuthTest extends TestCase
 
         $user = User::factory()->create();
 
-        $response = $this->from('/login')->post(route('login'), [
+        $response = $this->from(route('login'))->post(route('login'), [
             'email' => $user->email,
             'password' => 'invalid-password',
         ]);

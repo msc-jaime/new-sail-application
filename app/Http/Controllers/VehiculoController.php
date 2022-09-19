@@ -38,17 +38,14 @@ class VehiculoController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            '_token' => 'required',
             'placa' => 'required',
             'marca' => 'required', 
             'modelo' => 'required',
             'color' => 'required'
         ]);
 
-        $data = $request->post();
-
-        Vehiculo::create($request->post());
-        return redirect()->route('vehiculo.index')->with('data', null);
+        Vehiculo::create($request->post()); 
+        return redirect()->route('vehiculo.index')->with('success','Vehiculo has been created successfully.');
     }
 
     
@@ -75,7 +72,7 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, Vehiculo $vehiculo){
         $vehiculo->fill($request->post())->save();
-        return redirect()->route('vehiculo.index');
+        return redirect()->route('vehiculo.index')->with('success','Vehiculo Has Been updated successfully');
     }
 
 
@@ -88,7 +85,7 @@ class VehiculoController extends Controller
      */
     public function delete(Vehiculo $vehiculo){
         $vehiculo->delete();
-        return redirect()->route('vehiculo.index');
+        return redirect()->route('vehiculo.index')->with('success','Vehiculo has been deleted successfully');
     }
 
     
