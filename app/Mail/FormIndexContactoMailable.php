@@ -11,14 +11,17 @@ class FormIndexContactoMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
+
+    protected $data;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Array $data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +31,14 @@ class FormIndexContactoMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        
+        return $this->view('email.contacto')
+            ->with([
+                'name' => $this->data['name'],
+                'email' => $this->data['email'],
+                'subject' => $this->data['subject'],
+                'message_contact' => $this->data['message_contact'],
+            ]);
+        
     }
 }

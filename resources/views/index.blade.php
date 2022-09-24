@@ -66,7 +66,7 @@
 
 
         <!-- Marketing messaging and featurettes
-      ================================================== -->
+          ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
 
         <div class="container marketing">
@@ -180,8 +180,9 @@
 
                             <!--Grid column-->
                             <div class="col-md-9 mb-md-0 mb-5">
-                                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
+                                <form id="contact-form" name="contact-form" action="{{ route('send.emailContact') }}"
+                                    method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <!--Grid row-->
                                     <div class="row">
 
@@ -191,6 +192,9 @@
                                                 <input type="text" id="name" name="name"
                                                     class="form-control">
                                                 <label for="name" class="">Your name</label>
+                                                @error('name')
+                                                    <div class="text-danger"> {{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--Grid column-->
@@ -201,6 +205,9 @@
                                                 <input type="text" id="email" name="email"
                                                     class="form-control">
                                                 <label for="email" class="">Your email</label>
+                                                @error('email')
+                                                    <div class="text-danger"> {{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--Grid column-->
@@ -215,6 +222,9 @@
                                                 <input type="text" id="subject" name="subject"
                                                     class="form-control">
                                                 <label for="subject" class="">Subject</label>
+                                                @error('subject')
+                                                    <div class="text-danger"> {{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -227,8 +237,12 @@
                                         <div class="col-md-12">
 
                                             <div class="md-form">
-                                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                                                <label for="message">Your message</label>
+                                                <textarea type="text" id="message_contact" name="message_contact" rows="2"
+                                                    class="form-control md-textarea"></textarea>
+                                                <label for="message_contact">Your message</label>
+                                                @error('message_contact')
+                                                    <div class="text-danger"> {{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                         </div>

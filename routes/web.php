@@ -5,11 +5,12 @@ use App\Http\Controllers\ConductorController;
 use App\Http\Controllers\CrearPDFController;
 use App\Http\Controllers\CrearExcelController;
 use App\Http\Controllers\RutaController;
+use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Auth::routes();
 
@@ -44,7 +45,7 @@ Route::prefix('app/')->middleware('auth')->group(function () {
 
 
 
-
+Route::post('/send-mail-contact', [SendEmailController::class, 'sendEmailContact'])->name('send.emailContact');
 Route::get('/view-pdf', [CrearPDFController::class, 'createViewPdfVehiculo'])->name('pdf.createViewPdfVehiculo');
 Route::get('/download-pdf', [CrearPDFController::class, 'createDownloadPdfVehiculo'])->name('pdf.createDownloadPdfVehiculo');
 Route::get('/download-excel', [CrearExcelController::class, 'createDownloadExcelVehiculo'])->name('excel.createDownloadExcelVehiculo');
